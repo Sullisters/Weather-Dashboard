@@ -14,7 +14,7 @@ body {
 header {
     background-color: var(--secondary);
     text-align: center;
-    height: 8vh;
+    height: 6vh;
 }
 
 .aside {
@@ -38,6 +38,7 @@ header {
 
 .forecastBox {
     background-color: var(--secondary);
+    margin: 20px;
 }
 
 
