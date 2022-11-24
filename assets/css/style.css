@@ -1,13 +1,13 @@
 :root {
     --primary: red;
-    --secondary: blue;
+    --secondary: rgb(0, 255, 136);
     --text-light: white;
     --text-dark: black;
 
 }
 
 body {
-    /* background-color: var(--secondary); */
+    background-color: var(--secondary);
     color: var(--text-light);
 }
 

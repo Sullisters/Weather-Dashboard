@@ -1,5 +1,5 @@
 //Test javascript to ensure it is linked
-// console.log('hello!')
+console.log('hello!')
 
 // Set global variables
 let searchBtn = document.querySelector('#searchBtn');
@@ -46,18 +46,18 @@ function fetchWeatherData (cityName) {
 
         // Five day forecast
         function longForecast () {
-            let findWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=c81096e7c8f7e5aba437df08fab95a24`;
+            let findWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid=c81096e7c8f7e5aba437df08fab95a24`;
             fetch (findWeather)
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
                 console.log(data)
-                let dataList = data.dataList
+                let dataList = data.list
                 for (let i = 0; i < dataList.length; i+=8) {
                     console.log(dataList[i])
-                    let forcast = document.createElement('div');
-                    longForecast.style.flex = "25%";
+                    let forecast = document.createElement('div');
+                    forecast.style.flex = "25%";
 
                     let largeDiv = document.createElement('div');
                     // Styling for parent div
@@ -88,9 +88,9 @@ function fetchWeatherData (cityName) {
     })
 }
 
-searchBtn.addEventListener('clicl', function(e) {
+searchBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    let myLocation = document.querySelector('#location').ariaValueMax;
+    let myLocation = document.querySelector('#location').value;
     console.log(myLocation);
     fetchWeatherData(myLocation)
 })
