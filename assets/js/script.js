@@ -6,7 +6,7 @@ let searchBtn = document.querySelector('#searchBtn');
 
 // Request the data from the weather api based on name of searched city
 function fetchWeatherData (cityName) {
-    let requestedLocation = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=c81096e7c8f7e5aba437df08fab95a24`
+    let requestedLocation = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=ca61e90c1abb3d9512ca5b59ac1ae589`
 
     fetch(requestedLocation)
     .then(function (response) {
@@ -38,7 +38,7 @@ function fetchWeatherData (cityName) {
         dateData.innerHTML = `Date: ${moment(date).format('MMM Do YYYY')}`;
         pictureData.innerHTML = picture;
         tempData.innerHTML = `Temperature: ${temp}`;
-        windSpeedData.innerHTML = `Wind Speed: ${windSpeed}`;
+        windSpeedData.innerHTML = `Wind Speed: ${windSpeed} mph`;
         humidityData.innerHTML = `Humidity: ${humidity}`;
 
         let currWeather = document.querySelector('#currWeather');
@@ -46,7 +46,7 @@ function fetchWeatherData (cityName) {
 
         // Five day forecast
         function longForecast () {
-            let findWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid=c81096e7c8f7e5aba437df08fab95a24`;
+            let findWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid=ca61e90c1abb3d9512ca5b59ac1ae589`;
             fetch (findWeather)
             .then(function(response) {
                 return response.json();
@@ -62,7 +62,7 @@ function fetchWeatherData (cityName) {
                     let largeDiv = document.createElement('div');
                     // Styling for parent div
                     largeDiv.style.display = 'block';
-                    largeDiv.style.border = '5px solid black';
+                    largeDiv.style.border = '2px solid rgb(212, 0, 255)';
                     largeDiv.style.margin = '20px';
 
                     // Assigning local variables for forecast data
@@ -76,7 +76,7 @@ function fetchWeatherData (cityName) {
                     forecastDateData = `Date: ${moment(dataList[i].dt_txt).format('MMM Do YYYY')}`;
                     forecastTempData.innerHTML = `Temperature: ${dataList[i].main.temp}`;
                     forecastHumidityData.innerHTML = `Humidity: ${dataList[i].main.humidity}`;
-                    forecastWindSpeedData.innerHTML = `Wind Speed: ${dataList[i].wind.speed}`;
+                    forecastWindSpeedData.innerHTML = `Wind Speed: ${dataList[i].wind.speed} mph`;
 
                     let forecastWeather = document.querySelector('#forecastWeather');
                     largeDiv.append(forecastPictureData, forecastDateData, forecastTempData, forecastHumidityData, forecastWindSpeedData);
